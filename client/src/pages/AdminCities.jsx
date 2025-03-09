@@ -18,9 +18,12 @@ const AdminCities = () => {
   const fetchCities = async () => {
     try {
       const token = localStorage.getItem('jwtToken');
-      const response = await axios.get('https://mahayogam-software.onrender.com/api/places/', {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(
+        'https://mahayogam-software-f2og.onrender.com/api/places/',
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setCities(response.data);
     } catch (error) {
       console.error('Error fetching cities:', error);
@@ -36,7 +39,7 @@ const AdminCities = () => {
     try {
       const token = localStorage.getItem('jwtToken');
       await axios.post(
-        'https://mahayogam-software.onrender.com/api/places/',
+        'https://mahayogam-software-f2og.onrender.com/api/places/',
         { place: newPlace },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -114,7 +117,7 @@ const AdminCities = () => {
               >
                 Create
               </button>
-            </div>  
+            </div>
           </div>
         </div>
       )}

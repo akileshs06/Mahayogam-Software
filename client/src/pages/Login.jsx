@@ -21,7 +21,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        'https://mahayogam-software.onrender.com/api/auth/login',
+        'https://mahayogam-software-f2og.onrender.com/api/auth/login',
         {
           email,
           password,

@@ -19,9 +19,12 @@ const AdminAttendancePage = () => {
 
   useEffect(() => {
     axios
-      .get(`https://mahayogam-software.onrender.com/api/students/batch/${batchNumber}`, {
-        headers: { Authorization: `Bearer ${jwtToken}` },
-      })
+      .get(
+        `https://mahayogam-software-f2og.onrender.com/api/students/batch/${batchNumber}`,
+        {
+          headers: { Authorization: `Bearer ${jwtToken}` },
+        }
+      )
       .then((response) => {
         const today_date = new Date();
         const formattedDate = `${today_date.getFullYear()}-${(
@@ -51,7 +54,7 @@ const AdminAttendancePage = () => {
   const toggleAttendance = (studentId, status) => {
     axios
       .patch(
-        `https://mahayogam-software.onrender.com/api/students/${studentId}`, // Assuming this is the correct API endpoint
+        `https://mahayogam-software-f2og.onrender.com/api/students/${studentId}`, // Assuming this is the correct API endpoint
         { status }, // Sending only required data
         { headers: { Authorization: `Bearer ${jwtToken}` } }
       )
@@ -72,14 +75,17 @@ const AdminAttendancePage = () => {
     }
     try {
       const token = localStorage.getItem('jwtToken');
-      const response = await fetch('https://mahayogam-software.onrender.com/api/students/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ batchId: batchNumber, name, age }),
-      });
+      const response = await fetch(
+        'https://mahayogam-software-f2og.onrender.com/api/students/',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ batchId: batchNumber, name, age }),
+        }
+      );
 
       if (response.ok) {
         setShowForm(false);

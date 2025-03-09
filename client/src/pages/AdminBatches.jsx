@@ -21,7 +21,7 @@ const AdminBatches = () => {
     try {
       const token = localStorage.getItem('jwtToken');
       const response = await fetch(
-        `https://mahayogam-software.onrender.com/api/batches/${cityId}`,
+        `https://mahayogam-software-f2og.onrender.com/api/batches/${cityId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -46,14 +46,17 @@ const AdminBatches = () => {
 
     try {
       const token = localStorage.getItem('jwtToken');
-      const response = await fetch('https://mahayogam-software.onrender.com/api/batches', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ placeId: cityId, name: batchName }),
-      });
+      const response = await fetch(
+        'https://mahayogam-software-f2og.onrender.com/api/batches',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ placeId: cityId, name: batchName }),
+        }
+      );
 
       if (!response.ok) throw new Error('Failed to create batch');
 
